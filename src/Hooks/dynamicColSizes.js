@@ -1,5 +1,5 @@
-import useScrollbarWidth from 'Hooks/UseScrollbarWidth';
 import { useMemo, useEffect, useCallback } from 'react';
+import useScrollbarWidth from './useScrollbarWidth.js';
 
 const safeClamp = (val, min, max) => {
   let clampedVal = val;
@@ -74,16 +74,16 @@ const useTableDynamicColSizes = (columns, width, scrollbarActive = false, callba
           // Use flex grow factor to scale all unfrozen items
           colFlexData.forEach((c, i) => {
             if (c.frozen) { return; }
-            colFlexData[i].targetMainSize = c.flexBasis
-              + (c.flexGrow / flexFactorTotal) * remainingSpace;
+            colFlexData[i].targetMainSize = c.flexBasis +
+              (c.flexGrow / flexFactorTotal) * remainingSpace;
           });
         } else {
           // Use scaled flex shrink factor to scalle all unfrozen items
           colFlexData.forEach((c, i) => {
             if (c.frozen) { return; }
             const scaledFlexShrink = c.flexShrink * c.flexBasis;
-            colFlexData[i].targetMainSize = c.flexBasis
-              - (scaledFlexShrink / scaledFactorTotal) * Math.abs(remainingSpace);
+            colFlexData[i].targetMainSize = c.flexBasis -
+              (scaledFlexShrink / scaledFactorTotal) * Math.abs(remainingSpace);
           });
         }
       }

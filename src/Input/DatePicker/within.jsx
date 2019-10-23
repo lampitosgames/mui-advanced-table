@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import InputDropdown from 'Input/Dropdown';
-import Typography from '@material-ui/core/Typography';
-import InputDatePicker from 'Input/DatePicker';
 import clsx from 'clsx';
 import moment from 'moment';
+import Typography from '@material-ui/core/Typography';
+import InputDropdown from '../Dropdown/index.jsx';
+import InputDatePicker from './index.jsx';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -111,7 +111,7 @@ const InputDatePickerWithin = ({
 InputDatePickerWithin.defaultProps = {
   withinRange: '1 Week',
   date: undefined,
-  action: () => { },
+  action: () => {},
   className: '',
 };
 

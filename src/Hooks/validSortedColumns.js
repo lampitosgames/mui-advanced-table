@@ -1,4 +1,4 @@
-import { ensureSafeColumnObject } from 'Table/helpers';
+import { ensureSafeColumnObject } from '../Table/helpers.js';
 import { useState, useEffect, useCallback } from 'react';
 
 const sortColumnsByOrder = (a, b) => {

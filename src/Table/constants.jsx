@@ -1,16 +1,16 @@
 import React from 'react';
-import TableCellCurrency from 'Table/Cell/currency';
-import TableCellDate from 'Table/Cell/date';
-import TableCellNumber from 'Table/Cell/number';
-import TableCellStatus from 'Table/Cell/status';
-import TableCellText from 'Table/Cell/text';
-import TableInputCheckbox from 'Table/Input/checkbox';
-import TableInputCurrencyField from 'Table/Input/currencyField';
-import TableInputDate from 'Table/Input/date';
-import TableInputDropdown from 'Table/Input/dropdown';
-import TableInputIconButton from 'Table/Input/iconButton';
-import TableInputNumberField from 'Table/Input/numberField';
-import TableInputTextField from 'Table/Input/textField';
+import TableCellCurrency from './Cell/currency.jsx';
+import TableCellDate from './Cell/date.jsx';
+import TableCellNumber from './Cell/number.jsx';
+import TableCellStatus from './Cell/status.jsx';
+import TableCellText from './Cell/text.jsx';
+import TableInputCheckbox from './Input/checkbox.jsx';
+import TableInputCurrencyField from './Input/currencyField.jsx';
+import TableInputDate from './Input/date.jsx';
+import TableInputDropdown from './Input/dropdown.jsx';
+import TableInputIconButton from './Input/iconButton.jsx';
+import TableInputNumberField from './Input/numberField.jsx';
+import TableInputTextField from './Input/textField.jsx';
 
 export const CELL_TYPES = {
   ACTION_BUTTON: 'table/ACTION_BUTTON',
@@ -44,9 +44,9 @@ export const cellTypeMap = {
 
 export const rightAlignedCellTypes = (type) => {
   if (
-    type === CELL_TYPES.DATE
-    || type === CELL_TYPES.CURRENCY
-    || type === CELL_TYPES.NUMBER
+    type === CELL_TYPES.DATE ||
+    type === CELL_TYPES.CURRENCY ||
+    type === CELL_TYPES.NUMBER
   ) {
     return 'right';
   }

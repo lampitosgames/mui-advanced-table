@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import TableInputTextField from 'Table/Input/textField';
-import { validateNumber } from 'Table/Input/Validation';
+import TableInputTextField from './textField.jsx';
+import { validateNumber } from './Validation';
 
 const TableInputNumberField = ({
   validators,

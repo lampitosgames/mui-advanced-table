@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import clsx from 'clsx';
-import useTableInputValidation from 'Hooks/UseTable/inputValidation';
-import { setCurrentCell } from 'Hooks/UseTable/nav';
 import { makeStyles } from '@material-ui/core/styles';
+import useTableInputValidation from '../../Hooks/inputValidation.js';
+import { setCurrentCell } from '../../Hooks/nav.js';
 
 const useTextFieldStyles = makeStyles(theme => ({
   textField: {

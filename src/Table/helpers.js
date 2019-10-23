@@ -1,5 +1,4 @@
-import { CELL_TYPES } from 'Table/constants';
-
+import { CELL_TYPES } from './constants.jsx';
 const deepmerge = require('deepmerge');
 
 const classesShape = {

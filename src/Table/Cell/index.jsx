@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { memo, useMemo } from 'react';
-import TableCellSkeleton from 'Table/Cell/skeleton';
 import clsx from 'clsx';
 import { areEqual } from 'react-window';
-import { cellTypeMap, rightAlignedCellTypes, CELL_TYPES } from 'Table/constants';
-import { useRowContext, useColumnContext } from 'Table/context';
 import { makeStyles } from '@material-ui/core/styles';
+import { cellTypeMap, rightAlignedCellTypes, CELL_TYPES } from '../constants.jsx';
+import { useRowContext, useColumnContext } from '../context.jsx';
+import TableCellSkeleton from './skeleton.jsx';
 
 const useCellStyles = makeStyles(theme => ({
   cell: {

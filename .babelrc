@@ -1,0 +1,10 @@
+{
+  "presets": ["env"],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+    }],
+    "transform-react-jsx",
+    "transform-object-rest-spread"
+  ]
+}

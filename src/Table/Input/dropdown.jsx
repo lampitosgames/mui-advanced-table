@@ -1,15 +1,15 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
-import InputDropdownLabel from 'Input/Dropdown/label';
-import InputDropdownSelected from 'Input/Dropdown/selected';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, useRef } from 'react';
 import Select from '@material-ui/core/Select';
-import { setCurrentCell } from 'Hooks/UseTable/nav';
 import { makeStyles } from '@material-ui/core/styles';
+import { setCurrentCell } from '../../Hooks/nav.js';
+import InputDropdownLabel from '../../Input/Dropdown/label.jsx';
+import InputDropdownSelected from '../../Input/Dropdown/selected.jsx';
 
 const useDropdownStyles = makeStyles(theme => ({
   dropdownFormControl: {
@@ -106,10 +106,10 @@ const TableInputDropdown = ({
           {Object.entries(displayChoices).map(([choiceName, choiceValue]) => (
             <MenuItem key={choiceName} value={choiceValue}>
               {allowMultiple ? (
-                <>
+                <React.Fragment>
                   <Checkbox color="primary" checked={selectedState.indexOf(choiceValue) > -1} />
                   <ListItemText primary={choiceName} />
-                </>
+                </React.Fragment>
               ) : choiceName}
             </MenuItem>
           ))}

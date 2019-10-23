@@ -69,20 +69,21 @@ const TableCellStatus = ({
 }) => {
   const classList = useStyles();
   const type = getStatusCellEnumValue(cellValue);
+
+  let selectedIcon;
+  switch (type) {
+  case STATUS.COMPLETE:
+    selectedIcon = <div className={clsx(classList.statusIcon, classList.complete, className)}><DoneIcon /></div>;
+  case STATUS.ERROR:
+    selectedIcon = <div className={clsx(classList.statusIcon, classList.error, className)}><ClearIcon /></div>;
+  case STATUS.PENDING:
+    selectedIcon = <div className={clsx(classList.statusIcon, classList.pending, className)}><AutorenewIcon /></div>;
+  default:
+    selectedIcon = <div />;
+  }
   return (
     <div className={clsx(classList.status, className)} style={style} {...events}>
-      {
-        switch (type) {
-        case STATUS.COMPLETE:
-          return <div className={clsx(classList.statusIcon, classList.complete, className)}><DoneIcon /></div>;
-        case STATUS.ERROR:
-          return <div className={clsx(classList.statusIcon, classList.error, className)}><ClearIcon /></div>;
-        case STATUS.PENDING:
-          return <div className={clsx(classList.statusIcon, classList.pending, className)}><AutorenewIcon /></div>;
-        default:
-          return <div />;
-        }
-      }
+      {selectedIcon}
     </div>
   );
 };

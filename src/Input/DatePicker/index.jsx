@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import moment from 'moment';
-import useDatePickerValidatedState from 'Hooks/UseDatePickerValidatedState';
-import { KeyboardDatePicker } from '@material-ui/pickers';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import { KeyboardDatePicker } from '@material-ui/pickers';
+import useDatePickerValidatedState from '../../Hooks/useDatePickerValidatedState.js';
 
 const useStyles = makeStyles(() => ({
   datePicker: {

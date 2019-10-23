@@ -1,26 +1,26 @@
-import AutoSizer from 'react-virtualized-auto-sizer';
-import FILTER_TYPES from 'Hooks/UseTable/Filter/constants';
-import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
-import TableCell from 'Table/Cell';
-import TableFooter from 'Table/Footer';
-import TableHeader from 'Table/Header';
-import TableTitle from 'Table/Title';
-import clsx from 'clsx';
-import useTableDynamicColSizes from 'Hooks/UseTable/dynamicColSizes';
-import useTableFilter from 'Hooks/UseTable/Filter';
-import useTableIndexedRows from 'Hooks/UseTable/indexedRows';
-import useTableRefsAndSize from 'Hooks/UseTable/refsAndSize';
-import useTableRowSelection from 'Hooks/UseTable/rowSelection';
-import useTableSort from 'Hooks/UseTable/sort';
-import useTableValidSortedColumns from 'Hooks/UseTable/validSortedColumns';
-import useTableWrappedInputActions from 'Hooks/UseTable/wrappedInputActions';
-import { CELL_TYPES, getTableID } from 'Table/constants';
-import { TableContextProvider } from 'Table/context';
-import { VariableSizeGrid } from 'react-window';
-import { ensureSafeClassesObject } from 'Table/helpers';
-import { useTableNav } from 'Hooks/UseTable/nav';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeGrid } from 'react-window';
+import clsx from 'clsx';
+import TableCell from './Table/Cell/index.jsx';
+import TableFooter from './Table/footer.jsx';
+import TableHeader from './Table/Header/index.jsx';
+import TableTitle from './Table/title.jsx';
+import FILTER_TYPES from './Hooks/Filter/constants.js';
+import useTableDynamicColSizes from './Hooks/dynamicColSizes.js';
+import useTableFilter from './Hooks/Filter/index.jsx';
+import useTableIndexedRows from './Hooks/indexedRows.js';
+import useTableRefsAndSize from './Hooks/refsAndSize.js';
+import useTableRowSelection from './Hooks/rowSelection.js';
+import useTableSort from './Hooks/sort.jsx';
+import useTableValidSortedColumns from './Hooks/validSortedColumns.js';
+import useTableWrappedInputActions from './Hooks/wrappedInputActions.js';
+import { CELL_TYPES, getTableID } from './Table/constants.jsx';
+import { TableContextProvider } from './Table/context.jsx';
+import { ensureSafeClassesObject } from './Table/helpers.js';
+import { useTableNav } from './Hooks/nav.js';
 
 /*
 TODO

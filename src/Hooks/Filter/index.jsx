@@ -8,14 +8,17 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import React, {
-  useMemo, useState, useEffect, useRef,
+  useMemo,
+  useState,
+  useEffect,
+  useRef,
 } from 'react';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import moment from 'moment';
-import FilterInput from './input';
-import FILTER_TYPES from './constants';
-import useStyles from './styles';
+import FilterInput from './input.jsx';
+import FILTER_TYPES from './constants.js';
+import useStyles from './styles.js';
 import { dateRangeMap, getInitialFilterVal, getChipLabel } from './helpers';
 
 const filterSingleProp = (rows, filter) => {

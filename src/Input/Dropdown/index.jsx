@@ -8,8 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Checkbox from '@material-ui/core/Checkbox';
 import ListItemText from '@material-ui/core/ListItemText';
 import clsx from 'clsx';
-import InputDropdownLabel from './label';
-import InputDropdownSelected from './selected';
+import InputDropdownLabel from './label.jsx';
+import InputDropdownSelected from './selected.jsx';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -94,10 +94,10 @@ const InputDropdown = ({
         {Object.entries(displayChoices).map(([choiceName, choiceValue]) => (
           <MenuItem key={choiceName} value={choiceValue} classes={{ root: muiOverrides.menuItem }}>
             {allowMultiple ? (
-              <>
+              <React.Fragment>
                 <Checkbox color="primary" checked={selectedState.indexOf(choiceValue) > -1} />
                 <ListItemText primary={choiceName} />
-              </>
+              </React.Fragment>
             ) : choiceName}
           </MenuItem>
         ))}

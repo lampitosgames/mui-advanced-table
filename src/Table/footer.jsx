@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useImperativeHandle, useRef } from 'react';
-import TableCellCurrency from 'Table/Cell/currency';
-import TableCellNumber from 'Table/Cell/number';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import useScrollbarWidth from 'Hooks/UseScrollbarWidth';
-import useTableColumnTotals from 'Hooks/UseTable/columnTotals';
-import { CELL_TYPES, rightAlignedCellTypes } from 'Table/constants';
 import { makeStyles } from '@material-ui/core/styles';
+import useScrollbarWidth from '../Hooks/useScrollbarWidth.js';
+import useTableColumnTotals from '../Hooks/columnTotals.js';
+import { CELL_TYPES, rightAlignedCellTypes } from './constants.jsx';
+import TableCellCurrency from './Cell/currency.jsx';
+import TableCellNumber from './Cell/number.jsx';
 
 const useFooterStyles = makeStyles(theme => ({
   footerRow: {

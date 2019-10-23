@@ -4,12 +4,12 @@ import React, { useMemo, useRef, useImperativeHandle } from 'react';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import useScrollbarWidth from 'Hooks/UseScrollbarWidth';
-import { CELL_TYPES, rightAlignedCellTypes } from 'Table/constants';
 import { sortableContainer, sortableElement } from 'react-sortable-hoc';
-import { useRowContext, useColumnContext } from 'Table/context';
+import useScrollbarWidth from '../../Hooks/useScrollbarWidth.js';
+import { CELL_TYPES, rightAlignedCellTypes } from '../constants.jsx';
+import { useRowContext, useColumnContext } from '../context.jsx';
 import { makeStyles } from '@material-ui/core/styles';
-import TableHeaderCheckbox from './checkbox';
+import TableHeaderCheckbox from './checkbox.jsx';
 
 const useHeaderStyles = makeStyles(theme => ({
   headerRow: {

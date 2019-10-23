@@ -1,8 +1,8 @@
 import Checkbox from '@material-ui/core/Checkbox';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { setCurrentCell } from 'Hooks/UseTable/nav';
-import { makeStyles } from '@material-ui/core/styles';
+import { setCurrentCell } from '../../Hooks/nav.js';
 
 const useCheckboxStyles = makeStyles(theme => ({
   checkbox: {
