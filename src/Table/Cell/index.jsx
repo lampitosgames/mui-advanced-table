@@ -10,7 +10,7 @@ import TableCellSkeleton from './skeleton.jsx';
 const useCellStyles = makeStyles(theme => ({
   cell: {
     alignItems: 'center',
-    borderTop: `1px solid ${theme.palette.light.dark}`,
+    borderTop: `1px solid ${theme.palette.grey}`,
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'row',

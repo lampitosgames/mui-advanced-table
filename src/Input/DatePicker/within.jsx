@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   inputText: {
     paddingTop: theme.spacing(0.5),
-    fontSize: theme.spacing(theme.typography.label.fontSize),
+    fontSize: theme.spacing(theme.typography.caption.fontSize),
     color: theme.palette.text.secondary,
   },
   margin: {

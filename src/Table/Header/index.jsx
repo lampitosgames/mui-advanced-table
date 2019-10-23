@@ -13,7 +13,7 @@ import TableHeaderCheckbox from './checkbox.jsx';
 
 const useHeaderStyles = makeStyles(theme => ({
   headerRow: {
-    borderBottom: `1px solid ${theme.palette.light.dark}`,
+    borderBottom: `1px solid ${theme.palette.grey}`,
     display: 'flex',
     flexDirection: 'row',
     overflow: 'hidden',

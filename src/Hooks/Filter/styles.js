@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   filter: {
     alignItems: 'center',
-    borderBottom: `1px solid ${theme.palette.light.dark}`,
-    borderTop: `1px solid ${theme.palette.light.dark}`,
+    borderBottom: `1px solid ${theme.palette.grey}`,
+    borderTop: `1px solid ${theme.palette.grey}`,
     display: 'flex',
     height: theme.spacing(6.4),
     padding: `0 ${theme.spacing(1.6)} 0 ${theme.spacing(0.8)}`,
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
   filterInputText: {
     flex: 1,
-    fontSize: theme.spacing(theme.typography.label.fontSize),
+    fontSize: theme.spacing(theme.typography.caption.fontSize),
     paddingRight: theme.spacing(1.6),
     paddingTop: theme.spacing(0.5),
   },

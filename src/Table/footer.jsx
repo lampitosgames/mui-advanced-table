@@ -20,13 +20,13 @@ const useFooterStyles = makeStyles(theme => ({
   totalsLabel: {
     left: 0,
     paddingLeft: `${theme.spacing(1.6)} !important`,
-    borderTop: `1px solid ${theme.palette.light.dark}`,
+    borderTop: `1px solid ${theme.palette.grey}`,
     position: 'absolute',
     top: 0,
   },
   footerCell: {
     backgroundColor: theme.palette.background.paper,
-    borderTop: `1px solid ${theme.palette.light.dark}`,
+    borderTop: `1px solid ${theme.palette.grey}`,
     boxSizing: 'border-box',
     display: 'inline-block',
     overflow: 'hidden',
