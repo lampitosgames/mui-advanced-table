@@ -8,9 +8,6 @@
 # testing
 /coverage
 
-# production
-/build
-
 # local configs
 .importjs.js
 
