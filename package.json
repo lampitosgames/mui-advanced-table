@@ -1,6 +1,6 @@
 {
   "name": "mui-advanced-table",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "An incredibly extensive table implementation for material-ui",
   "main": "build/index.js",
   "repository": "github:lampitosgames/mui-advanced-table",
