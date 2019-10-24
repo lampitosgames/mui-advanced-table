@@ -5,7 +5,7 @@ const useTableIndexedRows = (rows) => {
     const newRow = r;
     newRow.index = i;
     return newRow;
-  }), [rows, rows.length]); // eslint-disable-line react-hooks/exhaustive-deps
+  }), [...rows, rows.length]); // eslint-disable-line react-hooks/exhaustive-deps
   return indexedRows;
 };
 

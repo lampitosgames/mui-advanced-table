@@ -1,14 +1,13 @@
-import React, { useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { VariableSizeGrid } from 'react-window';
-import clsx from 'clsx';
+import FILTER_TYPES from './Hooks/Filter/constants.js';
+import MomentUtils from '@date-io/moment';
+import PropTypes from 'prop-types';
+import React, { useState, useMemo } from 'react';
 import TableCell from './Table/Cell/index.jsx';
 import TableFooter from './Table/footer.jsx';
 import TableHeader from './Table/Header/index.jsx';
 import TableTitle from './Table/title.jsx';
-import FILTER_TYPES from './Hooks/Filter/constants.js';
+import clsx from 'clsx';
 import useTableDynamicColSizes from './Hooks/dynamicColSizes.js';
 import useTableFilter from './Hooks/Filter/index.jsx';
 import useTableIndexedRows from './Hooks/indexedRows.js';
@@ -18,12 +17,13 @@ import useTableSort from './Hooks/sort.jsx';
 import useTableValidSortedColumns from './Hooks/validSortedColumns.js';
 import useTableWrappedInputActions from './Hooks/wrappedInputActions.js';
 import { CELL_TYPES, getTableID } from './Table/constants.jsx';
-import { TableContextProvider } from './Table/context.jsx';
-import { ensureSafeClassesObject, generateClassName } from './Table/helpers.js';
-import { useTableNav } from './Hooks/nav.js';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
-import { StylesProvider, useTheme } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
+import { TableContextProvider } from './Table/context.jsx';
+import { VariableSizeGrid } from 'react-window';
+import { ensureSafeClassesObject, generateClassName } from './Table/helpers.js';
+import { makeStyles } from '@material-ui/core/styles';
+import { useTableNav } from './Hooks/nav.js';
 
 /*
 TODO
@@ -102,9 +102,6 @@ const Table = ({
   const [loading, setLoading] = useState(false);
   const startLoading = () => setLoading(true);
   const stopLoading = () => setLoading(false);
-
-  const theme = useTheme();
-  console.dir(theme);
 
   // Hook to manage all table refs, sizing, and scrolling
   const [
