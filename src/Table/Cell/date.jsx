@@ -3,11 +3,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import moment from 'moment';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(() => ({
-  date: {},
-}));
 
 const TableCellDate = ({
   cellValue,
@@ -15,11 +10,10 @@ const TableCellDate = ({
   events,
   style,
 }) => {
-  const classList = useStyles();
   const date = moment(cellValue);
   return (
     <Typography
-      className={clsx(classList.date, className)}
+      className={className}
       component="div"
       style={style}
       variant="body1"

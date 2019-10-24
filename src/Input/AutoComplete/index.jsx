@@ -2,6 +2,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+import { normSp } from '../../Table/helpers.js';
 import {
   Control,
   Option,
@@ -16,12 +17,12 @@ import {
 const useStyles = makeStyles(theme => ({
   textField: {},
   noOptionsMessage: {
-    padding: theme.spacing(1, 2),
+    padding: normSp(theme, 1),
   },
   input: {
     display: 'flex',
     padding: 0,
-    height: '3.47rem',
+    height: normSp(theme, 3.47),
   },
   singleValue: {},
   valueContainer: {

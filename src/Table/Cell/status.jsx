@@ -5,6 +5,7 @@ import AutorenewIcon from '@material-ui/icons/Autorenew';
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
 import { makeStyles } from '@material-ui/core/styles';
+import { normSp } from '../../Table/helpers.js';
 
 export const STATUS = {
   PENDING: 'PENDING',
@@ -18,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
   statusIcon: {
     borderRadius: '50%',
-    width: theme.spacing(3.25),
-    height: theme.spacing(3.25),
+    width: normSp(theme, 3.25),
+    height: normSp(theme, 3.25),
     fontWeight: 'bold',
-    padding: theme.spacing(0.4),
+    padding: normSp(theme, 0.4),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

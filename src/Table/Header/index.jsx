@@ -10,10 +10,11 @@ import { CELL_TYPES, rightAlignedCellTypes } from '../constants.jsx';
 import { useRowContext, useColumnContext } from '../context.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import TableHeaderCheckbox from './checkbox.jsx';
+import { normSp } from '../helpers.js';
 
 const useHeaderStyles = makeStyles(theme => ({
   headerRow: {
-    borderBottom: `1px solid ${theme.palette.grey}`,
+    borderBottom: `1px solid ${theme.palette.grey.A100}`,
     display: 'flex',
     flexDirection: 'row',
     overflow: 'hidden',
@@ -30,36 +31,36 @@ const useHeaderStyles = makeStyles(theme => ({
     position: 'relative',
     userSelect: 'none',
     '&:first-child': {
-      paddingLeft: theme.spacing(1.6),
+      paddingLeft: normSp(theme, 1.6),
     },
     // Select second to last child
     '&:nth-last-child(2)': {
-      paddingRight: theme.spacing(1.6),
+      paddingRight: normSp(theme, 1.6),
     },
   },
   smallHorPadding: {
-    paddingLeft: theme.spacing(0.4),
-    paddingRight: theme.spacing(0.4),
+    paddingLeft: normSp(theme, 0.4),
+    paddingRight: normSp(theme, 0.4),
   },
   smallVertPadding: {
-    paddingBottom: theme.spacing(0.8),
-    paddingTop: theme.spacing(0.8),
+    paddingBottom: normSp(theme, 0.8),
+    paddingTop: normSp(theme, 0.8),
   },
   mediumHorPadding: {
-    paddingLeft: theme.spacing(0.8),
-    paddingRight: theme.spacing(0.8),
+    paddingLeft: normSp(theme, 0.8),
+    paddingRight: normSp(theme, 0.8),
   },
   mediumVertPadding: {
-    paddingBottom: theme.spacing(1.6),
-    paddingTop: theme.spacing(1.6),
+    paddingBottom: normSp(theme, 1.6),
+    paddingTop: normSp(theme, 1.6),
   },
   largeHorPadding: {
-    paddingLeft: theme.spacing(1.2),
-    paddingRight: theme.spacing(1.2),
+    paddingLeft: normSp(theme, 1.2),
+    paddingRight: normSp(theme, 1.2),
   },
   largeVertPadding: {
-    paddingBottom: theme.spacing(2),
-    paddingTop: theme.spacing(2),
+    paddingBottom: normSp(theme, 2),
+    paddingTop: normSp(theme, 2),
   },
   cellText: {
     boxSizing: 'border-box',
@@ -70,7 +71,7 @@ const useHeaderStyles = makeStyles(theme => ({
   },
   icon: {
     color: theme.palette.text.secondary,
-    fontSize: `${theme.spacing(2.2)}`,
+    fontSize: `${normSp(theme, 2.2)}`,
     transition: 'all 100ms linear',
   },
   sortLabel: {
@@ -95,13 +96,13 @@ const useHeaderStyles = makeStyles(theme => ({
     transition: 'opacity 100ms linear',
   },
   smallHandleIcon: {
-    top: theme.spacing(3),
+    top: normSp(theme, 3),
   },
   mediumHandleIcon: {
-    top: theme.spacing(4),
+    top: normSp(theme, 4),
   },
   largeHandleIcon: {
-    top: theme.spacing(4.5),
+    top: normSp(theme, 4.5),
   },
 }));
 

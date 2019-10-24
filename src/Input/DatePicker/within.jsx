@@ -6,6 +6,7 @@ import moment from 'moment';
 import Typography from '@material-ui/core/Typography';
 import InputDropdown from '../Dropdown/index.jsx';
 import InputDatePicker from './index.jsx';
+import { normSp } from '../../Table/helpers.js';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -18,12 +19,12 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
   },
   inputText: {
-    paddingTop: theme.spacing(0.5),
-    fontSize: theme.spacing(theme.typography.caption.fontSize),
+    paddingTop: normSp(theme, 0.5),
+    fontSize: normSp(theme, theme.typography.caption.fontSize),
     color: theme.palette.text.secondary,
   },
   margin: {
-    marginLeft: theme.spacing(1.6),
+    marginLeft: normSp(theme, 1.6),
   },
 }));
 

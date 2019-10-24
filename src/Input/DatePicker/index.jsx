@@ -1,16 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { KeyboardDatePicker } from '@material-ui/pickers';
 import useDatePickerValidatedState from '../../Hooks/useDatePickerValidatedState.js';
-
-const useStyles = makeStyles(() => ({
-  datePicker: {
-
-  },
-}));
 
 const InputDatePicker = ({
   initialDate,
@@ -20,7 +13,6 @@ const InputDatePicker = ({
   action,
   className,
 }) => {
-  const classes = useStyles();
   const [
     date,
     error,
@@ -29,7 +21,7 @@ const InputDatePicker = ({
   ] = useDatePickerValidatedState(initialDate, minDate, maxDate, action);
   return (
     <KeyboardDatePicker
-      className={clsx(classes.datePicker, className)}
+      className={className}
       value={date}
       label={label}
       emptyLabel=""

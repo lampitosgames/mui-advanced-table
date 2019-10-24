@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { makeStyles } from '@material-ui/core/styles';
+import { normSp } from '../../Table/helpers.js';
 
 const useStyles = makeStyles(theme => ({
   skeleton: {
     borderRadius: 0,
-    height: theme.spacing(2.4),
+    height: normSp(theme, 2.4),
     width: '100%',
   },
 }));

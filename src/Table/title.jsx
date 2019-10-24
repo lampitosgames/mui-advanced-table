@@ -3,28 +3,29 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import { normSp } from './helpers.js';
 
 const useStyles = makeStyles(theme => ({
   tableTitle: {
     display: 'flex',
     flexDirection: 'row',
-    paddingBottom: theme.spacing(1.6),
-    paddingLeft: theme.spacing(1.6),
-    paddingTop: theme.spacing(1.6),
+    paddingBottom: normSp(theme, 1.6),
+    paddingLeft: normSp(theme, 1.6),
+    paddingTop: normSp(theme, 1.6),
     position: 'relative',
     width: '100%',
   },
   smallVertPadding: {
-    paddingBottom: theme.spacing(0),
-    paddingTop: theme.spacing(0),
+    paddingBottom: normSp(theme, 0),
+    paddingTop: normSp(theme, 0),
   },
   mediumVertPadding: {
-    paddingBottom: theme.spacing(1.6),
-    paddingTop: theme.spacing(1.6),
+    paddingBottom: normSp(theme, 1.6),
+    paddingTop: normSp(theme, 1.6),
   },
   largeVertPadding: {
-    paddingBottom: theme.spacing(2),
-    paddingTop: theme.spacing(2),
+    paddingBottom: normSp(theme, 2),
+    paddingTop: normSp(theme, 2),
   },
 }));
 

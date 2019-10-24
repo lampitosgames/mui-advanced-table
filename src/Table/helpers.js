@@ -24,6 +24,17 @@ export const ensureSafeClassesObject = classes => (
   deepmerge(classesShape, classes || {}, { arrayMerge: (dest, src) => src })
 );
 
+const htmlFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+export const normSp = (theme, val) => {
+  const remSize = "" + theme.spacing(val * 10.0 / htmlFontSize);
+
+  //If the theme did not provide units, use rem
+  if (remSize.match(/(\d*\.?\d+)\s?(px|em|ex|%|in|cn|mm|pt|pc+)/g) === null) {
+    return `${val * 10.0 / htmlFontSize}rem`;
+  }
+  return remSize;
+}
+
 export const ensureSafeColumnObject = (column, index) => {
   // Default values that will result in the most basic rendering possible
   const columnDefaults = {

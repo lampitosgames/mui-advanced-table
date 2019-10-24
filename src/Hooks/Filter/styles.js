@@ -1,26 +1,27 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { normSp } from '../../Table/helpers.js';
 
 const useStyles = makeStyles(theme => ({
   filter: {
     alignItems: 'center',
-    borderBottom: `1px solid ${theme.palette.grey}`,
-    borderTop: `1px solid ${theme.palette.grey}`,
+    borderBottom: `1px solid ${theme.palette.grey.A100}`,
+    borderTop: `1px solid ${theme.palette.grey.A100}`,
     display: 'flex',
-    height: theme.spacing(6.4),
-    padding: `0 ${theme.spacing(1.6)} 0 ${theme.spacing(0.8)}`,
+    height: normSp(theme, 6.4),
+    padding: `0 ${normSp(theme, 1.6)} 0 ${normSp(theme, 0.8)}`,
   },
   filterPopper: {
-    padding: theme.spacing(3.2),
+    padding: normSp(theme, 3.2),
   },
   chipContainer: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
-    paddingLeft: theme.spacing(1.6),
-    paddingRight: theme.spacing(1.6),
+    paddingLeft: normSp(theme, 1.6),
+    paddingRight: normSp(theme, 1.6),
   },
   chip: {
-    marginRight: theme.spacing(0.8),
+    marginRight: normSp(theme, 0.8),
   },
   chipActive: {
     backgroundColor: theme.palette.secondary.light,
@@ -36,13 +37,13 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: theme.spacing(1.6),
+    marginBottom: normSp(theme, 1.6),
   },
   filterInputText: {
     flex: 1,
-    fontSize: theme.spacing(theme.typography.caption.fontSize),
-    paddingRight: theme.spacing(1.6),
-    paddingTop: theme.spacing(0.5),
+    fontSize: normSp(theme, theme.typography.caption.fontSize),
+    paddingRight: normSp(theme, 1.6),
+    paddingTop: normSp(theme, 0.5),
   },
   filterInputField: {
     flex: 3,

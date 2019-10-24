@@ -8,6 +8,7 @@ import useTableColumnTotals from '../Hooks/columnTotals.js';
 import { CELL_TYPES, rightAlignedCellTypes } from './constants.jsx';
 import TableCellCurrency from './Cell/currency.jsx';
 import TableCellNumber from './Cell/number.jsx';
+import { normSp } from './helpers.js';
 
 const useFooterStyles = makeStyles(theme => ({
   footerRow: {
@@ -19,49 +20,49 @@ const useFooterStyles = makeStyles(theme => ({
   },
   totalsLabel: {
     left: 0,
-    paddingLeft: `${theme.spacing(1.6)} !important`,
-    borderTop: `1px solid ${theme.palette.grey}`,
+    paddingLeft: `${normSp(theme, 1.6)} !important`,
+    borderTop: `1px solid ${theme.palette.grey.A100}`,
     position: 'absolute',
     top: 0,
   },
   footerCell: {
     backgroundColor: theme.palette.background.paper,
-    borderTop: `1px solid ${theme.palette.grey}`,
+    borderTop: `1px solid ${theme.palette.grey.A100}`,
     boxSizing: 'border-box',
     display: 'inline-block',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     '&:first-child': {
-      paddingLeft: theme.spacing(1.6),
+      paddingLeft: normSp(theme, 1.6),
     },
     '&:nth-last-child(2)': {
-      paddingRight: theme.spacing(1.6),
+      paddingRight: normSp(theme, 1.6),
     },
   },
   smallPadding: {
-    paddingBottom: theme.spacing(0.8),
-    paddingLeft: theme.spacing(0.4),
-    paddingRight: theme.spacing(0.4),
-    paddingTop: theme.spacing(0.8),
+    paddingBottom: normSp(theme, 0.8),
+    paddingLeft: normSp(theme, 0.4),
+    paddingRight: normSp(theme, 0.4),
+    paddingTop: normSp(theme, 0.8),
   },
   mediumPadding: {
-    paddingBottom: theme.spacing(1.6),
-    paddingLeft: theme.spacing(0.8),
-    paddingRight: theme.spacing(0.8),
-    paddingTop: theme.spacing(1.6),
+    paddingBottom: normSp(theme, 1.6),
+    paddingLeft: normSp(theme, 0.8),
+    paddingRight: normSp(theme, 0.8),
+    paddingTop: normSp(theme, 1.6),
   },
   largePadding: {
-    paddingBottom: theme.spacing(2),
-    paddingLeft: theme.spacing(1.2),
-    paddingRight: theme.spacing(1.2),
-    paddingTop: theme.spacing(2),
+    paddingBottom: normSp(theme, 2),
+    paddingLeft: normSp(theme, 1.2),
+    paddingRight: normSp(theme, 1.2),
+    paddingTop: normSp(theme, 2),
   },
   scrollbarPadder: {
     boxSizing: 'border-box',
     display: 'flex',
-    paddingLeft: theme.spacing(0.8),
-    paddingRight: theme.spacing(0.8),
+    paddingLeft: normSp(theme, 0.8),
+    paddingRight: normSp(theme, 0.8),
     position: 'relative',
   },
 }));

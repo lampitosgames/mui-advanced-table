@@ -2,10 +2,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { normSp } from '../../Table/helpers.js';
 
 const useStyles = makeStyles(theme => ({
   checkbox: {
-    transform: `translateX(${theme.spacing(-0.8)})`,
+    transform: `translateX(${normSp(theme, -0.8)})`,
   },
 }));
 

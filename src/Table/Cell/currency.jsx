@@ -3,11 +3,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import currency from 'currency.js';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(() => ({
-  currency: {},
-}));
 
 const TableCellCurrency = ({
   cellValue,
@@ -15,14 +10,13 @@ const TableCellCurrency = ({
   events,
   style,
 }) => {
-  const classList = useStyles();
   const getValue = () => {
     if (cellValue === '') { return cellValue; }
     return currency(cellValue, { formatWithSymbol: true }).format();
   };
   return (
     <Typography
-      className={clsx(classList.currency, className)}
+      className={className}
       component="div"
       style={style}
       variant="body1"

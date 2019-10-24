@@ -10,10 +10,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import clsx from 'clsx';
 import InputDropdownLabel from './label.jsx';
 import InputDropdownSelected from './selected.jsx';
+import { normSp } from '../../Table/helpers.js';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    minWidth: theme.spacing(6.4),
+    minWidth: normSp(theme, 6.4),
     width: '100%',
   },
   selectMenu: {

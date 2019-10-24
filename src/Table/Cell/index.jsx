@@ -6,11 +6,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { cellTypeMap, rightAlignedCellTypes, CELL_TYPES } from '../constants.jsx';
 import { useRowContext, useColumnContext } from '../context.jsx';
 import TableCellSkeleton from './skeleton.jsx';
+import { normSp } from '../../Table/helpers.js';
 
 const useCellStyles = makeStyles(theme => ({
   cell: {
     alignItems: 'center',
-    borderTop: `1px solid ${theme.palette.grey}`,
+    borderTop: `1px solid ${theme.palette.grey.A100}`,
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'row',
@@ -25,16 +26,16 @@ const useCellStyles = makeStyles(theme => ({
     cursor: 'pointer',
   },
   smallPadding: {
-    paddingLeft: theme.spacing(0.4),
-    paddingRight: theme.spacing(0.4),
+    paddingLeft: normSp(theme, 0.4),
+    paddingRight: normSp(theme, 0.4),
   },
   mediumPadding: {
-    paddingLeft: theme.spacing(0.8),
-    paddingRight: theme.spacing(0.8),
+    paddingLeft: normSp(theme, 0.8),
+    paddingRight: normSp(theme, 0.8),
   },
   largePadding: {
-    paddingLeft: theme.spacing(1.2),
-    paddingRight: theme.spacing(1.2),
+    paddingLeft: normSp(theme, 1.2),
+    paddingRight: normSp(theme, 1.2),
   },
   leftCellAlign: {
     direction: 'ltr',
@@ -43,10 +44,10 @@ const useCellStyles = makeStyles(theme => ({
     direction: 'rtl',
   },
   leftmostCell: {
-    paddingLeft: theme.spacing(1.6),
+    paddingLeft: normSp(theme, 1.6),
   },
   rightmostCell: {
-    paddingRight: theme.spacing(1.6),
+    paddingRight: normSp(theme, 1.6),
   },
 }));
 

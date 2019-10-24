@@ -10,18 +10,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import { setCurrentCell } from '../../Hooks/nav.js';
 import InputDropdownLabel from '../../Input/Dropdown/label.jsx';
 import InputDropdownSelected from '../../Input/Dropdown/selected.jsx';
+import { normSp } from '../../Table/helpers.js';
 
 const useDropdownStyles = makeStyles(theme => ({
   dropdownFormControl: {
-    marginTop: theme.spacing(-0.3),
-    minWidth: theme.spacing(6.4),
+    marginTop: normSp(theme, -0.3),
+    minWidth: normSp(theme, 6.4),
     width: '100%',
   },
   dropdownSelectMenu: {
     height: '1.1875em',
   },
   dropdownFormControlLabel: {
-    top: theme.spacing(-1.8),
+    top: normSp(theme, -1.8),
   },
 }));
 

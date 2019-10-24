@@ -39,17 +39,17 @@ const useTableRefsAndSize = () => {
   }, [bodyRef]);
 
   return [{
-    tableRef,
-    bodyRef,
-    headerRef,
-    footerRef,
-    scrollContainerRef,
-  },
-  outerBounds,
-  innerBounds,
-  scrollbarActive,
-  handleResize,
-  resetCellSizeCache,
+      tableRef,
+      bodyRef,
+      headerRef,
+      footerRef,
+      scrollContainerRef,
+    },
+    outerBounds,
+    innerBounds,
+    scrollbarActive,
+    handleResize,
+    resetCellSizeCache,
   ];
 };
 

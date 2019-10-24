@@ -5,11 +5,12 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import useTableInputValidation from '../../Hooks/inputValidation.js';
 import { setCurrentCell } from '../../Hooks/nav.js';
+import { normSp } from '../../Table/helpers.js';
 
 const useTextFieldStyles = makeStyles(theme => ({
   textField: {
     margin: '0 !important',
-    paddingTop: theme.spacing(0.3),
+    paddingTop: normSp(theme, 0.3),
   },
   input: {
     ...theme.typography.body1,
