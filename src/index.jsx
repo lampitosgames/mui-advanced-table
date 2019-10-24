@@ -19,10 +19,11 @@ import useTableValidSortedColumns from './Hooks/validSortedColumns.js';
 import useTableWrappedInputActions from './Hooks/wrappedInputActions.js';
 import { CELL_TYPES, getTableID } from './Table/constants.jsx';
 import { TableContextProvider } from './Table/context.jsx';
-import { ensureSafeClassesObject } from './Table/helpers.js';
+import { ensureSafeClassesObject, generateClassName } from './Table/helpers.js';
 import { useTableNav } from './Hooks/nav.js';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
+import { StylesProvider, useTheme } from '@material-ui/core/styles';
 
 /*
 TODO
@@ -101,6 +102,9 @@ const Table = ({
   const [loading, setLoading] = useState(false);
   const startLoading = () => setLoading(true);
   const stopLoading = () => setLoading(false);
+
+  const theme = useTheme();
+  console.dir(theme);
 
   // Hook to manage all table refs, sizing, and scrolling
   const [
@@ -187,55 +191,57 @@ const Table = ({
 
   return (
     <div className={clsx(classList.table, className, classOverwrites.root)} style={style}>
-      <MuiPickersUtilsProvider utils={MomentUtils}>
-        <TableContextProvider columns={columnState} rows={sortedRows} tableID={tableID}>
-          <TableTitle title={title} size={size} className={classOverwrites.title} />
-          {filterElement}
-          <TableHeader
-            classes={classOverwrites}
-            forceUpdate={forceUpdate}
-            innerWidth={innerBounds.width}
-            onSortEnd={onColumnOrderChange}
-            onSortStart={startLoading}
-            ref={refs.headerRef}
-            size={size}
-            sortState={sortState}
-            tableID={tableID}
-          />
-          <div className={classList.autoSizer}>
-            <AutoSizer onResize={handleResize}>
-              {({ height: autoSizerHeight, width: autoSizerWidth }) => (
-                <React.Fragment>
-                  <VariableSizeGrid
-                    columnCount={columnState.length}
-                    columnWidth={getColumnWidth}
-                    height={autoSizerHeight}
-                    itemData={cellDataStore}
-                    outerRef={refs.scrollContainerRef}
-                    overscanRowCount={5}
-                    ref={refs.tableRef}
-                    rowCount={sortedRows.length}
-                    rowHeight={getExpandedHeight}
-                    width={autoSizerWidth}
-                  >
-                    {TableCell}
-                  </VariableSizeGrid>
-                  {loading ? <div style={{ height: autoSizerHeight, width: autoSizerWidth }} className={classList.loadingOverlay} /> : ''}
-                </React.Fragment>
-              )}
-            </AutoSizer>
-          </div>
-          <TableFooter
-            classes={classOverwrites}
-            columns={columnState}
-            innerWidth={innerBounds.width}
-            ref={refs.footerRef}
-            rows={rows}
-            size={size}
-            totalsLabel={totalsLabel}
-          />
-        </TableContextProvider>
-      </MuiPickersUtilsProvider>
+      <StylesProvider generateClassName={generateClassName}>
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <TableContextProvider columns={columnState} rows={sortedRows} tableID={tableID}>
+            <TableTitle title={title} size={size} className={classOverwrites.title} />
+            {filterElement}
+            <TableHeader
+              classes={classOverwrites}
+              forceUpdate={forceUpdate}
+              innerWidth={innerBounds.width}
+              onSortEnd={onColumnOrderChange}
+              onSortStart={startLoading}
+              ref={refs.headerRef}
+              size={size}
+              sortState={sortState}
+              tableID={tableID}
+            />
+            <div className={classList.autoSizer}>
+              <AutoSizer onResize={handleResize}>
+                {({ height: autoSizerHeight, width: autoSizerWidth }) => (
+                  <React.Fragment>
+                    <VariableSizeGrid
+                      columnCount={columnState.length}
+                      columnWidth={getColumnWidth}
+                      height={autoSizerHeight}
+                      itemData={cellDataStore}
+                      outerRef={refs.scrollContainerRef}
+                      overscanRowCount={5}
+                      ref={refs.tableRef}
+                      rowCount={sortedRows.length}
+                      rowHeight={getExpandedHeight}
+                      width={autoSizerWidth}
+                    >
+                      {TableCell}
+                    </VariableSizeGrid>
+                    {loading ? <div style={{ height: autoSizerHeight, width: autoSizerWidth }} className={classList.loadingOverlay} /> : ''}
+                  </React.Fragment>
+                )}
+              </AutoSizer>
+            </div>
+            <TableFooter
+              classes={classOverwrites}
+              columns={columnState}
+              innerWidth={innerBounds.width}
+              ref={refs.footerRef}
+              rows={rows}
+              size={size}
+              totalsLabel={totalsLabel}
+            />
+          </TableContextProvider>
+        </MuiPickersUtilsProvider>
+      </StylesProvider>
     </div>
   );
 };

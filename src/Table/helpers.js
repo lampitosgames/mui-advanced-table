@@ -1,4 +1,5 @@
 import { CELL_TYPES } from './constants.jsx';
+import { createGenerateClassName } from '@material-ui/core/styles';
 const deepmerge = require('deepmerge');
 
 const classesShape = {
@@ -96,3 +97,8 @@ export const makeCustomAreEqualForSpecificProps = propsToCompare => (
 
   return (!allAreEqual && !shallowDiffers(prevProps, nextProps));
 };
+
+export const generateClassName = createGenerateClassName({
+  disableGlobal: false,
+  productionPrefix: 'muiat-'
+});

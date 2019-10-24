@@ -1,4 +1,5 @@
 const path = require('path');
+var nodeExternals = require('webpack-node-externals');
 module.exports = {
   entry: './src/index.jsx',
   output: {
@@ -20,7 +21,5 @@ module.exports = {
     }]
   },
   mode: 'production',
-  externals: {
-    'react': 'commonjs react'
-  }
+  externals: [nodeExternals()],
 };
