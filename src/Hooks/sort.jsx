@@ -6,9 +6,9 @@ const makeSortState = (callback, prevSortBy = [], prevSortDirection = {}) => {
   const sortBy = prevSortBy || [];
   const sortDirection = prevSortDirection || {};
   sortBy.forEach((dataKey) => {
-    sortDirection[dataKey] = prevSortDirection[dataKey]
-      ? prevSortDirection[dataKey]
-      : 'asc';
+    sortDirection[dataKey] = prevSortDirection[dataKey] ?
+      prevSortDirection[dataKey] :
+      'asc';
   });
   const sort = (event, dataKey, defaultSortDirection = 'asc') => {
     if (event.shiftKey) {
@@ -110,7 +110,7 @@ const useTableSort = (rowData, onSort = () => {}) => {
     // Sort all rows using compare function
     quickSortRows(clonedRowData, 0, clonedRowData.length - 1, compareRows);
     // Call passed-in event listener
-    onSort();
+    onSort({ sortBy, sortDirection });
     // Set sorted rows to the now-sorted clonedRowData
     setSortedRows(clonedRowData);
   }, [rowData, setSortedRows, onSort]);

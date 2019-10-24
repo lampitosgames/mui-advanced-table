@@ -1,5 +1,8 @@
 import {
-  useMemo, useState, useEffect, useCallback,
+  useMemo,
+  useState,
+  useEffect,
+  useCallback,
 } from 'react';
 
 const useTableColumnTotals = (rows, columns) => {

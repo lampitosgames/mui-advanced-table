@@ -129,7 +129,7 @@ const useTableFilter = (data, columns, classes, onFilter = () => {}) => {
     if (baseResultSet === undefined) { return data; }
 
     // Fire onFilter event only if the memoized value changed
-    onFilter();
+    onFilter(filters);
     return [...baseResultSet];
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, data]);

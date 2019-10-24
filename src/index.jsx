@@ -37,8 +37,6 @@ Features
 Bugs
   - Some interactions cause double calls of the main table function body. Not a big problem, but
     could use optimization
-  - Sorting directly after editing a field does not cause that cell to re-render (probably
-    memoization issue)
   - When a row is expanded, the first cell's background reverts to a non-hover state (first cell is
     the one that renders the expanded element, so likely its breaking the memo)
   - Deleting an expanded row crashes the app in some instances (deletion is handled externally by
@@ -154,6 +152,10 @@ const Table = ({
   // Use static row indices according to how the rows were passed in
   const indexedRows = useTableIndexedRows(rows);
   // Allow row filtering (if no columns have filters, the filter UI will not appear)
+  const filterCallback = (filterState) => {
+    resetSelectedRows();
+    if (!!callbacks.onFilter) { callbacks.onFilter(filterState); }
+  }
   const [filteredRows, filterElement] = useTableFilter(
     indexedRows,
     columnState,
@@ -161,7 +163,11 @@ const Table = ({
     resetSelectedRows,
   );
   // Allow multi-column sorting
-  const [sortedRows, sortState] = useTableSort(filteredRows, resetSelectedRows);
+  const sortCallback = (sortState) => {
+    resetSelectedRows();
+    if (!!callbacks.onSort) { callbacks.onSort(sortState); }
+  }
+  const [sortedRows, sortState] = useTableSort(filteredRows, sortCallback);
 
   // Data all cells need access to for rendering purposes. Pass to the itemData prop on the table
   const cellDataStore = useMemo(() => ({
@@ -259,7 +265,16 @@ Table.defaultProps = {
 
 Table.propTypes = {
   callbacks: PropTypes.shape({
+    // onRowClick = (rowData) => {}
+    //   rowData - object of the clicked row
     onRowClick: PropTypes.func,
+    // onSort = (sortState = {sortBy, sortDirection}) => {}
+    //   sortBy - ordered array of column dataKeys that determines sort priority
+    //   sortDirection - Object that maps dataKeys to 'asc' or 'desc' sort directions
+    onSort: PropTypes.func,
+    // onFilter = (filters) => {}
+    //   filters - maps column dataKeys to a filter state object
+    onFilter: PropTypes.func,
   }),
   className: PropTypes.string,
   classes: PropTypes.shape({
