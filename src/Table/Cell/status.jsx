@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import clsx from 'clsx';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
-import ClearIcon from '@material-ui/icons/Clear';
-import DoneIcon from '@material-ui/icons/Done';
+import AutorenewIcon from '@material-ui/icons/AutorenewSharp';
+import ClearIcon from '@material-ui/icons/ClearSharp';
+import DoneIcon from '@material-ui/icons/DoneSharp';
 import { makeStyles } from '@material-ui/core/styles';
 import { normSp } from '../../Table/helpers.js';
 
@@ -19,22 +19,23 @@ const useStyles = makeStyles((theme) => ({
   },
   statusIcon: {
     borderRadius: '50%',
-    width: normSp(theme, 3.25),
-    height: normSp(theme, 3.25),
+    width: normSp(theme, 3.2),
+    height: normSp(theme, 3.2),
     fontWeight: 'bold',
     padding: normSp(theme, 0.4),
     display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 'auto',
     marginRight: 'auto',
   },
   complete: {
-    bakgroundColor: theme.palette.success.main,
+    backgroundColor: theme.palette.success.main,
     color: theme.palette.success.contrastText,
   },
   error: {
-    bakgroundColor: theme.palette.error.main,
+    backgroundColor: theme.palette.error.main,
     color: theme.palette.error.contrastText,
   },
   pending: {
@@ -46,9 +47,11 @@ const useStyles = makeStyles((theme) => ({
 
 // Given cell data, return the type of status icon to be displayed
 const getStatusCellEnumValue = (data) => {
-  if (data === STATUS.PENDING) { return STATUS.PENDING; }
-  if (data === STATUS.COMPLETE) { return STATUS.COMPLETE; }
-  if (data === STATUS.ERROR) { return STATUS.ERROR; }
+  if (typeof data === 'string') {
+    if (data.toUpperCase() === STATUS.PENDING) { return STATUS.PENDING; }
+    if (data.toUpperCase() === STATUS.COMPLETE) { return STATUS.COMPLETE; }
+    if (data.toUpperCase() === STATUS.ERROR) { return STATUS.ERROR; }
+  }
 
   if (data === 'pending') {
     return STATUS.PENDING;
@@ -74,16 +77,20 @@ const TableCellStatus = ({
   let selectedIcon;
   switch (type) {
   case STATUS.COMPLETE:
-    selectedIcon = <div className={clsx(classList.statusIcon, classList.complete, className)}><DoneIcon /></div>;
+    selectedIcon = <div className={clsx(classList.statusIcon, classList.complete)}><DoneIcon /></div>;
+    break;
   case STATUS.ERROR:
-    selectedIcon = <div className={clsx(classList.statusIcon, classList.error, className)}><ClearIcon /></div>;
+    selectedIcon = <div className={clsx(classList.statusIcon, classList.error)}><ClearIcon /></div>;
+    break;
   case STATUS.PENDING:
-    selectedIcon = <div className={clsx(classList.statusIcon, classList.pending, className)}><AutorenewIcon /></div>;
+    selectedIcon = <div className={clsx(classList.statusIcon, classList.pending)}><AutorenewIcon /></div>;
+    break;
   default:
     selectedIcon = <div />;
+    break;
   }
   return (
-    <div className={clsx(classList.status, className)} style={style} {...events}>
+    <div className={className} style={style} {...events}>
       {selectedIcon}
     </div>
   );

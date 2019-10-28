@@ -18,7 +18,10 @@ export const getInitialFilterVal = (f) => {
   }
   if (f.type === FILTER_TYPES.DATE) {
     return {
-      min: '', max: '', range: '1 Week', selectedDefault: 'Within',
+      min: '',
+      max: '',
+      range: '1 Week',
+      selectedDefault: 'Within',
     };
   }
   return '';
@@ -26,30 +29,30 @@ export const getInitialFilterVal = (f) => {
 
 export const getChipLabel = (f) => {
   switch (f.type) {
-    case (FILTER_TYPES.TEXT_AUTOCOMPLETE):
-    case (FILTER_TYPES.TEXT): {
-      return `${f.displayName} includes '${f.value}'`;
+  case (FILTER_TYPES.TEXT_AUTOCOMPLETE):
+  case (FILTER_TYPES.TEXT): {
+    return `${f.displayName} includes '${f.value}'`;
+  }
+  case (FILTER_TYPES.DROPDOWN): {
+    const displayChoices = {};
+    if (typeof f.choices === 'object') {
+      Object.entries(f.choices).forEach(([k, v]) => { displayChoices[v] = k; });
+    } else if (f.choices instanceof Array) {
+      f.choices.forEach((c) => { displayChoices[c] = c; });
     }
-    case (FILTER_TYPES.DROPDOWN): {
-      const displayChoices = {};
-      if (typeof f.choices === 'object') {
-        Object.entries(f.choices).forEach(([k, v]) => { displayChoices[v] = k; });
-      } else if (f.choices instanceof Array) {
-        f.choices.forEach((c) => { displayChoices[c] = c; });
-      }
-      let displayString = `'${displayChoices[f.value[0]]}'`;
-      f.value.forEach((v, i) => {
-        if (i === 0) { return undefined; }
-        displayString += i === f.value.length - 1 ? ` or '${displayChoices[f.value[i]]}'` : `, '${displayChoices[f.value[i]]}'`;
-        return '';
-      });
-      return `${f.displayName} is ${displayString}`;
-    }
-    case (FILTER_TYPES.DATE): {
-      return `${f.displayName} is within ${f.value.range} of ${f.value.value}`;
-    }
-    default: {
-      return `${f.displayName}`;
-    }
+    let displayString = `'${displayChoices[f.value[0]]}'`;
+    f.value.forEach((v, i) => {
+      if (i === 0) { return undefined; }
+      displayString += i === f.value.length - 1 ? ` or '${displayChoices[f.value[i]]}'` : `, '${displayChoices[f.value[i]]}'`;
+      return '';
+    });
+    return `${f.displayName} is ${displayString}`;
+  }
+  case (FILTER_TYPES.DATE): {
+    return `${f.displayName} is within ${f.value.range} of ${new Date(f.value.value).toLocaleDateString()}`;
+  }
+  default: {
+    return `${f.displayName}`;
+  }
   }
 };

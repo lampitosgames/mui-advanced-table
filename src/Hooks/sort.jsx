@@ -96,13 +96,20 @@ const useTableSort = (rowData, onSort = () => {}) => {
     // Build a compare function
     const compareRows = (r1, r2) => {
       for (let i = 0; i < sortBy.length; i++) {
+        let val1 = r1[sortBy[i]];
+        let val2 = r2[sortBy[i]];
+        //typecast to string if values are not of the same type
+        if (typeof r1[sortBy[i]] !== typeof r2[sortBy[i]]) {
+          val1 += "";
+          val2 += "";
+        }
         // If the vals are equal, continue to the next sort column
-        if (r1[sortBy[i]] !== r2[sortBy[i]]) {
+        if (val1 !== val2) {
           // Ascending or descending sort
           if (sortDirection[sortBy[i]] === 'asc') {
-            return r1[sortBy[i]] > r2[sortBy[i]];
+            return val1 > val2;
           }
-          return r1[sortBy[i]] < r2[sortBy[i]];
+          return val1 < val2;
         }
       }
       return false;

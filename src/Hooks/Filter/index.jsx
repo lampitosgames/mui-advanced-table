@@ -169,7 +169,6 @@ const useTableFilter = (data, columns, classes, onFilter = () => {}) => {
 
   const filterElement = (
     <div className={clsx(classList.filter, classes.filter)}>
-      <ClickAwayListener onClickAway={closeMenu} mouseEvent="onMouseUp" touchEvent="onTouchEnd">
         <Popper open={menuOpen} anchorEl={buttonRef.current} placement="bottom-end" transition>
           {({ TransitionProps }) => (
             <Fade {...TransitionProps}>
@@ -185,7 +184,6 @@ const useTableFilter = (data, columns, classes, onFilter = () => {}) => {
             </Fade>
           )}
         </Popper>
-      </ClickAwayListener>
       <IconButton aria-label="filter" className={classes.filterButton} onClick={handleFilterClick} ref={buttonRef}>
         <FilterListIcon fontSize="large" />
       </IconButton>
